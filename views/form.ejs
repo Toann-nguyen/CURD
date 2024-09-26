@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        td {
+            padding: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/api/insert" method="POST">
+        <table>
+            <tr>
+                <td>Nhập Ma so :</td>
+                <td><input type="number" name="MS" required></td>
+            </tr>
+            <tr>
+                <td>Nhập tên của bạn:</td>
+                <td><input type="text" name="Name" required></td>
+            </tr>
+            <tr>
+                <td>Nhập email:</td>
+                <td><input type="email" name="Email" required></td>
+            </tr>
+            <tr>
+                <td>Nhập password:</td>
+                <td><input type="password" name="Pass" required></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Đăng nhập">
+                </td>
+            </tr>
+            <tr></tr>
+                <td colspan="2">
+                    <a href="/select">Xem danh sách</a> 
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

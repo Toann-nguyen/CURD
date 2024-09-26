@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách người dùng</title>
+</head>
+<body>
+    <h1>Danh sách người dùng</h1>
+    <table >
+        <thead>
+            <tr>
+                <th>Mã số</th>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Mật khẩu</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%  for (const user of user_regis ) { %>
+                <tr>
+                    <td><%= user.MS %></td>
+                    <td><%= user.Name %></td>
+                    <td><%= user.Email %></td>
+                    <td><%= user.Pass %></td>
+                  <td>   <a href="/update/<%= user._id %>">Update</a> 
+                  </td>
+                  <td>
+                    <a href="/delete/<%= user._id %>">Delete</a>
+                </td>
+               
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

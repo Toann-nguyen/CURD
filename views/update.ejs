@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách người dùng</title>
+</head>
+<body>
+    <h1>Danh sách người dùng</h1>
+    <form action="/api/update/<%= user._id %>" method="POST">
+    <table >
+        <thead>
+            <tr>
+             
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="hidden" name="id" value="<%= user._id %>"> 
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" name="MS" value="<%= user.Maso %>"> 
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="Name" value="<%= user.Name %>"> 
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+            <input type="email" name="Email" value="<%= user.Email %>">
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+            <input type="password" name="Pass" value="<%= user.Pass %>">
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <button type="submit">Cập nhật</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+</body>
+</html>
