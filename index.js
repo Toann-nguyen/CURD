@@ -23,11 +23,16 @@
         // Đăng ký thư mục public.....
         app.use(express.static('public'))
 
-        app.post('/api/insert',(req, res)=>{
-            regis.create(req.body).then(()=>{
-                res.redirect('/')
-            })
-        })
+      app.post('/api/insert', (req, res) => {
+  regis.create(req.body) // req.body đã chứa dữ liệu từ form.ejs
+    .then(() => {
+      res.redirect('/') // Chuyển hướng về trang chủ hoặc trang cần thiết
+    })
+    .catch(error => {
+      console.error('Lỗi khi thêm dữ liệu:', error);
+      res.status(500).send('Lỗi máy chủ');
+    });
+});
 
         // Gọi trang update để in dữ liệu theo ID
         app.get('/update/:id', async (req, res) => {

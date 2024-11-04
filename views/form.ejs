@@ -3,53 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+    <title>Form Đăng Ký</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5e6a7;
+        }
+        .form-container {
+            background-color: #ffcc66;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #006600;
+            margin-bottom: 20px;
+        }
         table {
-            border-collapse: collapse;
             width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
         }
         td {
-            padding: 10px;
+            padding: 8px;
         }
-        input {
+        input[type="text"], input[type="password"], input[type="file"], textarea {
             width: 100%;
-            padding: 5px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        textarea {
+            resize: none;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff9933;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #ff6600;
         }
     </style>
 </head>
 <body>
-    <form action="/api/insert" method="POST">
-        <table>
-            <tr>
-                <td>Nhập Ma so :</td>
-                <td><input type="number" name="MS" required></td>
-            </tr>
-            <tr>
-                <td>Nhập tên của bạn:</td>
-                <td><input type="text" name="Name" required></td>
-            </tr>
-            <tr>
-                <td>Nhập email:</td>
-                <td><input type="email" name="Email" required></td>
-            </tr>
-            <tr>
-                <td>Nhập password:</td>
-                <td><input type="password" name="Pass" required></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="Đăng nhập">
-                </td>
-            </tr>
-            <tr></tr>
-                <td colspan="2">
-                    <a href="/select">Xem danh sách</a> 
-                </td>
-            </tr>
-        </table>
-    </form>
+    <div class="form-container">
+        <h2>Đăng ký thông tin</h2>
+        <form><form action="/api/insert" method="POST"> 
+            <table>
+                <tr>
+                    <td><label for="fullname">Họ và tên</label></td>
+                    <td><input type="text" id="fullname" name="fullname" required></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Địa chỉ</label></td>
+                    <td><input type="text" id="address" name="address" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Điện thoại</label></td>
+                    <td><input type="text" id="phone" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td><label>Giới tính</label></td>
+                    <td>
+                        <input type="radio" id="male" name="gender" value="Nam" required>
+                        <label for="male">Nam</label>
+                        <input type="radio" id="female" name="gender" value="Nữ" required>
+                        <label for="female">Nữ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="username">Tên Tài Khoản</label></td>
+                    <td><input type="text" id="username" name="username" required></td>
+                </tr>
+                <tr>
+Bạn đã gửi
+<td><label for="password">Mật Khẩu</label></td>
+                    <td><input type="password" id="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td><label for="confirm_password">Nhập lại Mật Khẩu</label></td>
+                    <td><input type="password" id="confirm_password" name="confirm_password" required></td>
+                </tr>
+                <tr>
+                    <td><label for="notes">Ghi chú thêm</label></td>
+                    <td><textarea id="notes" name="notes" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="avatar">Ảnh Avanta</label></td>
+                    <td><input type="file" id="avatar" name="avatar"></td>
+                </tr>
+                <tr>
+                    <td><label>Sở thích</label></td>
+                    <td>
+                        <input type="checkbox" id="sports" name="hobbies" value="Thể thao">
+                        <label for="sports">Thể thao</label>
+                        <input type="checkbox" id="music" name="hobbies" value="Âm nhạc">
+                        <label for="music">Âm nhạc</label>
+                        <input type="checkbox" id="games" name="hobbies" value="Game">
+                        <label for="games">Game</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="submit-btn">Đồng ý</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 </html>
